@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ihome.basicbiz.account.dao.AccountTrustMapper" >
+  <resultMap id="BaseResultMap" type="com.ihome.basicbiz.account.domain.AccountTrust" >
+    <id column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <id column="TRUST_MGR_CODE" property="trustMgrCode" jdbcType="VARCHAR" />
+    <result column="TRUST_MGR_NAME" property="trustMgrName" jdbcType="VARCHAR" />
+    <result column="MERCHANT_NO" property="merchantNo" jdbcType="VARCHAR" />
+    <result column="USE_TYPE" property="useType" jdbcType="DECIMAL" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCOUNT_NO, TRUST_MGR_CODE, TRUST_MGR_NAME, MERCHANT_NO, USE_TYPE, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.ihome.basicbiz.account.domain.AccountTrustKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACCOUNT_TRUST
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+      and TRUST_MGR_CODE = #{trustMgrCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.ihome.basicbiz.account.domain.AccountTrustKey" >
+    delete from ACCOUNT_TRUST
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+      and TRUST_MGR_CODE = #{trustMgrCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ihome.basicbiz.account.domain.AccountTrust" >
+    insert into ACCOUNT_TRUST (ACCOUNT_NO, TRUST_MGR_CODE, TRUST_MGR_NAME, 
+      MERCHANT_NO, USE_TYPE, CREATE_TIME, 
+      UPDATE_TIME)
+    values (#{accountNo,jdbcType=VARCHAR}, #{trustMgrCode,jdbcType=VARCHAR}, #{trustMgrName,jdbcType=VARCHAR}, 
+      #{merchantNo,jdbcType=VARCHAR}, #{useType,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ihome.basicbiz.account.domain.AccountTrust" >
+    insert into ACCOUNT_TRUST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="trustMgrCode != null" >
+        TRUST_MGR_CODE,
+      </if>
+      <if test="trustMgrName != null" >
+        TRUST_MGR_NAME,
+      </if>
+      <if test="merchantNo != null" >
+        MERCHANT_NO,
+      </if>
+      <if test="useType != null" >
+        USE_TYPE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="trustMgrCode != null" >
+        #{trustMgrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="trustMgrName != null" >
+        #{trustMgrName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        #{merchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useType != null" >
+        #{useType,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ihome.basicbiz.account.domain.AccountTrust" >
+    update ACCOUNT_TRUST
+    <set >
+      <if test="trustMgrName != null" >
+        TRUST_MGR_NAME = #{trustMgrName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        MERCHANT_NO = #{merchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useType != null" >
+        USE_TYPE = #{useType,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+      and TRUST_MGR_CODE = #{trustMgrCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ihome.basicbiz.account.domain.AccountTrust" >
+    update ACCOUNT_TRUST
+    set TRUST_MGR_NAME = #{trustMgrName,jdbcType=VARCHAR},
+      MERCHANT_NO = #{merchantNo,jdbcType=VARCHAR},
+      USE_TYPE = #{useType,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+      and TRUST_MGR_CODE = #{trustMgrCode,jdbcType=VARCHAR}
+  </update>
+</mapper>
