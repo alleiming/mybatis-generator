@@ -13,8 +13,10 @@ pids/*
 *.swp
 .DS_Store
 .idea
+.iml
 **/target/*
 **/logs/*
 test-output/
 bin/
 *.iml
+/target/

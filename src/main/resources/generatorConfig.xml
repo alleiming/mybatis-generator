@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-	<!-- <classPathEntry location="D:\repository\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35-sources.jar" 
-		/> -->
-	<context id="context1">
-		<commentGenerator>
-			<property name="suppressAllComments" value="true" />
-		</commentGenerator>
-		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://10.166.224.18:6000/zsy_ddb_dev" userId="zsy_dev"
-			password="J0e2Z2odHGqV" /> -->
-		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.166.224.36:6561:accountdb" 
-			userId="account" password="account" />
-		<javaModelGenerator targetPackage="com.ihome.basicbiz.account.domain"
-			targetProject="mybatis" />
-		<sqlMapGenerator targetPackage="mapper" targetProject="mybatis" />
-		<javaClientGenerator targetPackage="com.ihome.basicbiz.account.dao"
-			targetProject="mybatis" type="XMLMAPPER" />
+    <classPathEntry location="lib/mysql-connector-java-5.1.35.jar"/>
 
-		<table tableName="account_trust" enableSelectByExample="false"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" selectByExampleQueryId="false" >
-		</table>
-	</context>
+    <context id="context1">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://ip:port/dbname"
+                        userId="user" password="password"/>
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@ip:port:sid"
+                        userId="user" password="password"/>-->
+
+        <javaModelGenerator targetPackage="com.ihome.pay.cashier.domain.batchpayout"
+                            targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/java"/>
+
+        <javaClientGenerator targetPackage="com.ihome.pay.cashier.dao.batchpayout"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="batch_payout%"
+               enableSelectByExample="false" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
 </generatorConfiguration>
