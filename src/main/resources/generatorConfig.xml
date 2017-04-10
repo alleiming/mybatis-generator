@@ -11,10 +11,7 @@
         <commentGenerator type="org.mybatis.generator.MyCommentGenerator">
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://rds6fbqrf6fbqrf.mysql.rds.aliyuncs.com:3306/fcp_fe_szbiz_galaxy_00"
-                        userId="za_dev_fcpgly"
-                        password="za_dev_fcpgly_53bdd0"/>
+        
         <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.166.224.36:6561:accountdb"
             userId="ap_recon" password="ap_recon" /> -->
 
