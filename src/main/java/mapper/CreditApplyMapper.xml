@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongan.fcp.pre.welab.dao.CreditApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.zhongan.fcp.pre.welab.domain.CreditApply" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="third_user_no" property="thirdUserNo" jdbcType="VARCHAR" />
+    <result column="req_no" property="reqNo" jdbcType="VARCHAR" />
+    <result column="credit_apply_no" property="creditApplyNo" jdbcType="VARCHAR" />
+    <result column="product_code" property="productCode" jdbcType="VARCHAR" />
+    <result column="apply_amount" property="applyAmount" jdbcType="DECIMAL" />
+    <result column="apply_date" property="applyDate" jdbcType="TIMESTAMP" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="cert_type" property="certType" jdbcType="TINYINT" />
+    <result column="cert_no" property="certNo" jdbcType="VARCHAR" />
+    <result column="phone_no" property="phoneNo" jdbcType="VARCHAR" />
+    <result column="risk_info" property="riskInfo" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="apply_status" property="applyStatus" jdbcType="TINYINT" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, third_user_no, req_no, credit_apply_no, product_code, apply_amount, apply_date, 
+    user_name, cert_type, cert_no, phone_no, risk_info, user_id, apply_status, creator, 
+    gmt_created, modifier, gmt_modified, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from credit_apply
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from credit_apply
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhongan.fcp.pre.welab.domain.CreditApply" >
+    insert into credit_apply (id, third_user_no, req_no, 
+      credit_apply_no, product_code, apply_amount, 
+      apply_date, user_name, cert_type, 
+      cert_no, phone_no, risk_info, 
+      user_id, apply_status, creator, 
+      gmt_created, modifier, gmt_modified, 
+      is_deleted)
+    values (#{id,jdbcType=BIGINT}, #{thirdUserNo,jdbcType=VARCHAR}, #{reqNo,jdbcType=VARCHAR}, 
+      #{creditApplyNo,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, #{applyAmount,jdbcType=DECIMAL}, 
+      #{applyDate,jdbcType=TIMESTAMP}, #{userName,jdbcType=VARCHAR}, #{certType,jdbcType=TINYINT}, 
+      #{certNo,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{riskInfo,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{applyStatus,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhongan.fcp.pre.welab.domain.CreditApply" >
+    insert into credit_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="thirdUserNo != null" >
+        third_user_no,
+      </if>
+      <if test="reqNo != null" >
+        req_no,
+      </if>
+      <if test="creditApplyNo != null" >
+        credit_apply_no,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="applyAmount != null" >
+        apply_amount,
+      </if>
+      <if test="applyDate != null" >
+        apply_date,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="certType != null" >
+        cert_type,
+      </if>
+      <if test="certNo != null" >
+        cert_no,
+      </if>
+      <if test="phoneNo != null" >
+        phone_no,
+      </if>
+      <if test="riskInfo != null" >
+        risk_info,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="applyStatus != null" >
+        apply_status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="thirdUserNo != null" >
+        #{thirdUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reqNo != null" >
+        #{reqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditApplyNo != null" >
+        #{creditApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null" >
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        #{certType,jdbcType=TINYINT},
+      </if>
+      <if test="certNo != null" >
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null" >
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="riskInfo != null" >
+        #{riskInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="applyStatus != null" >
+        #{applyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhongan.fcp.pre.welab.domain.CreditApply" >
+    update credit_apply
+    <set >
+      <if test="thirdUserNo != null" >
+        third_user_no = #{thirdUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reqNo != null" >
+        req_no = #{reqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creditApplyNo != null" >
+        credit_apply_no = #{creditApplyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null" >
+        apply_amount = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyDate != null" >
+        apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        cert_type = #{certType,jdbcType=TINYINT},
+      </if>
+      <if test="certNo != null" >
+        cert_no = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null" >
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="riskInfo != null" >
+        risk_info = #{riskInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="applyStatus != null" >
+        apply_status = #{applyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhongan.fcp.pre.welab.domain.CreditApply" >
+    update credit_apply
+    set third_user_no = #{thirdUserNo,jdbcType=VARCHAR},
+      req_no = #{reqNo,jdbcType=VARCHAR},
+      credit_apply_no = #{creditApplyNo,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      apply_amount = #{applyAmount,jdbcType=DECIMAL},
+      apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=VARCHAR},
+      cert_type = #{certType,jdbcType=TINYINT},
+      cert_no = #{certNo,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      risk_info = #{riskInfo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      apply_status = #{applyStatus,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
