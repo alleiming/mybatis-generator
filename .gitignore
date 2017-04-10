@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .project
 .classpath
 *.log
@@ -18,4 +19,27 @@ pids/*
 test-output/
 bin/
 *.iml
+=======
+.project
+.classpath
+*.log
+pids/*
+!.gitignore
+.project
+.settings/
+**/*.svn
+**/*.pmd
+*.svn
+*.sublime-project
+*.sublime-workspace
+*.swp
+.DS_Store
+.idea
+.iml
+**/target/*
+**/logs/*
+test-output/
+bin/
+*.iml
+>>>>>>> bd9d30a20dabe25c156819e694c39a6e97ac99ef
 /target/
